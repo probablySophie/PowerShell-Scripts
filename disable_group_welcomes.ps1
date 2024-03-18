@@ -1,6 +1,6 @@
 clear
 
-Write-Host "Getting groups..."
+Write-Host "Getting groups, this could take a little while..."
 $M365Groups = Get-UnifiedGroup -ResultSize Unlimited  # Get every group available
 
 $count = 1;
