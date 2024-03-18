@@ -1,5 +1,8 @@
 # PowerShell-Scripts
-Just some PowerShell scripts I use
+Just some PowerShell scripts I use.
+**Remember to connect to Microsoft Graph and/or Exchange Online!**
+
+<br>
 
 `create_M365_memberOf_group.ps1`
 <details>
