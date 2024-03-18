@@ -1,3 +1,5 @@
+clear
+
 $M365Groups = Get-UnifiedGroup -ResultSize Unlimited  # Get every group available
 
 $count = 1;
