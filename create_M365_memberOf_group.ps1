@@ -46,10 +46,10 @@ if ($groupExists -eq $True)
 }
 
 Write-Host "Creating Manual Group..."
-$group_manual = New-MgGroup -DisplayName $groupName_manual -SecurityEnabled -mailEnabled:$False -MailNickName $groupName_manual -description "The Manually assigned feeder group for the $($groupName) M365 Group"
+$group_manual = New-MgGroup -DisplayName $groupName_manual -SecurityEnabled -mailEnabled:$False -MailNickName ($email+"_manual") -description "The Manually assigned feeder group for the $($groupName) M365 Group"
 
 Write-Host "Creating Dynamic Group..."
-$group_dynamic = New-MgGroup -DisplayName $groupName_dynamic -SecurityEnabled -mailEnabled:$False -MailNickName $groupName_dynamic -description "The Dynamically assigned feeder group for the $($groupName) M365 Group"
+$group_dynamic = New-MgGroup -DisplayName $groupName_dynamic -SecurityEnabled -mailEnabled:$False -MailNickName ($email+"_dynamic") -description "The Dynamically assigned feeder group for the $($groupName) M365 Group"
 
 ### Double check that both groups' IDs aren't NULL
 if ( -not ( ($group_manual -eq $NULL) -and ($group_dynamic -eq $NULL) ) )
