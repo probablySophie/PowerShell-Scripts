@@ -33,10 +33,10 @@ function does_group_exist($groupName)
 }
 
 # Check if any of the group names we want to use are already taken
-$goupExists = $False
-$goupExists = $groupExists -or (does_group_exist($groupName))
-$goupExists = $groupExists -or (does_group_exist($groupName_manual))
-$goupExists = $groupExists -or (does_group_exist($groupName_dynamic))
+$groupExists = $False
+$groupExists = $groupExists -or (does_group_exist($groupName))
+$groupExists = $groupExists -or (does_group_exist($groupName_manual))
+$groupExists = $groupExists -or (does_group_exist($groupName_dynamic))
 
 ### Exit this script if the groups already exist
 if ($groupExists -eq $True)
@@ -46,17 +46,17 @@ if ($groupExists -eq $True)
 }
 
 Write-Host "Creating Manual Group..."
-$group_manual = New-MgGroup -DisplayName $groupName_manual -SecurityEnabled -mailEnabled:$False -MailNickName $groupName_manual
+$group_manual = New-MgGroup -DisplayName $groupName_manual -SecurityEnabled -mailEnabled:$False -MailNickName $groupName_manual -description "The Manually assigned feeder group for the $($groupName) M365 Group"
 
 Write-Host "Creating Dynamic Group..."
-$group_dynamic = New-MgGroup -DisplayName $groupName_dynamic -SecurityEnabled -mailEnabled:$False -MailNickName $groupName_dynamic
+$group_dynamic = New-MgGroup -DisplayName $groupName_dynamic -SecurityEnabled -mailEnabled:$False -MailNickName $groupName_dynamic -description "The Dynamically assigned feeder group for the $($groupName) M365 Group"
 
 ### Double check that both groups' IDs aren't NULL
 if ( -not ( ($group_manual -eq $NULL) -and ($group_dynamic -eq $NULL) ) )
 {
 	Write-Host "Creating M365 Group..."
 	# Make the M365 Group
-	New-MgGroup -DisplayName $groupName -MailEnabled -MailNickName $email -GroupTypes ("Unified", "DynamicMembership") -MembershipRule "user.memberof -any (group.objectId -in ['$($group_manual.id)', '$($group_dynamic.id)'])" -securityEnabled -membershipRuleProcessingState "on"
+	New-MgGroup -DisplayName $groupName -MailEnabled -MailNickName $email -GroupTypes ("Unified", "DynamicMembership") -MembershipRule "user.memberof -any (group.objectId -in ['$($group_manual.id)', '$($group_dynamic.id)'])" -securityEnabled -membershipRuleProcessingState "on" -description "Pulls users from the groups $($groupName_manual) & $($groupName_dynamic)"
 
 	Write-Host "Finished :)"
 }
