@@ -33,3 +33,15 @@ Just some PowerShell scripts I use.
 > Takes a `GroupID` as input  
 </details>
 <br>
+
+`get_device_users.ps1`
+<details>
+<summary>What's its deal?</summary>
+
+> Using the Microsoft Graph ==Beta==  
+> It gets all the registered devices  
+> Gets what userid most recently signed in  
+> Gets that user's display name  
+> Displays it all in a `Format-Table` table  
+</details>
+<br>
