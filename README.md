@@ -45,3 +45,16 @@ Just some PowerShell scripts I use.
 > Displays it all in a `Format-Table` table  
 </details>
 <br>
+
+`get_device_users.ps1`
+<details>
+<summary>What's its deal?</summary>
+
+> Using both Mg-Graph and Exchange Online
+> Takes a manager's Display Name
+> Gets all that manager's direct reports
+> Gives the direct reports view access to eachother
+> Gives the manager edit access to each report
+
+</details>
+<br>
