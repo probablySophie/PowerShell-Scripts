@@ -50,10 +50,10 @@ Just some PowerShell scripts I use.
 <details>
 <summary>What's its deal?</summary>
 
-> Using both Mg-Graph and Exchange Online
-> Takes a manager's Display Name
-> Gets all that manager's direct reports
-> Gives the direct reports view access to eachother
+> Using both Mg-Graph and Exchange Online  
+> Takes a manager's Display Name  
+> Gets all that manager's direct reports  
+> Gives the direct reports view access to eachother  
 > Gives the manager edit access to each report
 
 </details>
