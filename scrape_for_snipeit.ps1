@@ -1,4 +1,4 @@
-Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All, User.Read.All'
+Connect-MgGraph -Scopes 'DeviceManagementManagedDevices.Read.All', 'User.Read.All'
 
 $managed_devices = Get-MgBetaDeviceManagementManagedDevice -all
 
